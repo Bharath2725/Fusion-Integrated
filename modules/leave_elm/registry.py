@@ -23,3 +23,22 @@ PERMISSIONS = [
     ("leave_elm.calendar.manage", "Maintain holiday calendar"),
     ("leave_elm.record.manage", "Record offline-sanctioned leave")
 ]
+
+_EMPLOYEE = ["leave_elm.application.apply", "leave_elm.application.view_self", "leave_elm.application.withdraw", 
+             "leave_elm.application.cancel", "leave_elm.application.extend", "leave_elm.application.resume", 
+             "leave_elm.substitute.respond", "leave_elm.balance.view_self"]
+
+_AUTHORITY = [* _EMPLOYEE, "leave_elm.application.review", "leave_elm.application.sanction"]
+
+_ADMIN = ["leave_elm.balance.view_self", "leave_elm.policy.manage", 
+          "leave_elm.calendar.manage", "leave_elm.record.manage"]
+
+ROLE_GRANTS = {
+    "Employee": _EMPLOYEE, 
+    "Unit Head": _AUTHORITY, 
+    "Deputy Registrar (Estt.)": _AUTHORITY, 
+    "Dean": _AUTHORITY, 
+    "Registrar": _AUTHORITY, 
+    "Director": _AUTHORITY, 
+    "Leave Administrator": _ADMIN
+}
